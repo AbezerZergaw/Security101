@@ -45,7 +45,7 @@ public class User {
 
     public User(String email, String password, String firstname, String lastname, boolean enabled, String username) {
         this.email = email;
-        this.password = password;
+        this.password = new BCryptPasswordEncoder().encode(password);
         this.firstname = firstname;
         this.lastname = lastname;
         this.enabled = enabled;
