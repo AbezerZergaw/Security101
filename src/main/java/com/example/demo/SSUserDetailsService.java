@@ -30,15 +30,14 @@ public class SSUserDetailsService implements UserDetailsService {
 
 
         try{
-            User User = userRepo.findByUsername(username);
-            if(User ==null){
-                System.out.println("User not found with the provided username"+ User.toString());
+            User user = userRepo.findByUsername(username);
+            if(user ==null){
+                System.out.println("User not found with the provided username"+ user.toString());
                 return null;
             }
 
-            System.out.println("user from username "+ User.toString());
-            return new org.springframework.security.core.userdetails.User(User.getUsername(),User.getPassword(),getAuthorities(User));
-
+            System.out.println("user from username "+ user.toString());
+return new CustomUserDetails(user, getAuthorities(user));
         }catch (Exception e){
             throw new UsernameNotFoundException("User not found");
         }

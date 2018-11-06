@@ -1,7 +1,6 @@
 package com.example.demo.Classes;
 
 
-import org.hibernate.annotations.Fetch;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
